@@ -3,7 +3,6 @@ package org.example.tpo_07.service;
 import org.example.tpo_07.model.FormattedVersion;
 import org.springframework.stereotype.Service;
 
-import javax.imageio.IIOException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,12 +15,14 @@ import java.util.TimerTask;
 
 @Service
 public class StorageService {
-    private static final Path STORAGE_PATH = Paths.get("storage");
+    private static final Path STORAGE_PATH = Paths.get("valid_codes");
 
     public StorageService() {
         try {
             Files.createDirectory(STORAGE_PATH);
-        }catch (IOException e){}
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void save (FormattedVersion version) {
