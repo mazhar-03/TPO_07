@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Format Java Code</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Java Code Formatter</h1>
+    <form method="post" action="/code">
+        <label>
+            Code ID:
+            <input name="id" required/>
+        </label>
+        <label>
+            Duration (in seconds):
+            <input type="number" name="duration" required/>
+        </label>
+        <label>
+            Paste Java code:
+            <textarea name="code" rows="10" required></textarea>
+        </label>
+        <button type="submit">Format</button>
+    </form>
+</div>
+</body>
+</html>

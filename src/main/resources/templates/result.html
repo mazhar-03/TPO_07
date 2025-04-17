@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatted Code</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Code Formatter Result</h1>
+    <div class="code-grid">
+        <div>
+            <h2>Original</h2>
+            <pre th:text="${original}"></pre>
+        </div>
+        <div>
+            <h2>Formatted</h2>
+            <pre th:text="${formatted}"></pre>
+        </div>
+    </div>
+    <a href="/code" class="back-link">← Format another</a>
+</div>
+</body>
+</html>
