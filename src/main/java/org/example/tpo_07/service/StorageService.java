@@ -19,17 +19,17 @@ public class StorageService {
 
     public StorageService() {
         try {
-            Files.createDirectory(STORAGE_PATH);
-        }catch (IOException e){
+            Files.createDirectories(STORAGE_PATH);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void save (FormattedVersion version) {
+    public void save(FormattedVersion version) {
         File file = STORAGE_PATH.resolve(version.getId() + ".ser").toFile();
-        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
             out.writeObject(version);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         automaticDeletion(file, version.getExpireInSeconds());
