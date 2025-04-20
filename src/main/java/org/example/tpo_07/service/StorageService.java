@@ -15,7 +15,7 @@ import java.util.TimerTask;
 
 @Service
 public class StorageService {
-    private static final Path STORAGE_PATH = Paths.get("valid_codes");
+    private static final Path STORAGE_PATH = Paths.get("src/main/resources/valid_codes");
 
     public StorageService() {
         try {
@@ -41,5 +41,10 @@ public class StorageService {
                 file.delete();
             }
         }, seconds * 1000L);
+    }
+
+    public boolean isExists(String id) {
+        Path file = STORAGE_PATH.resolve(id + ".ser");
+        return Files.exists(file);
     }
 }

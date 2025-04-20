@@ -35,6 +35,11 @@ public class FormatController {
             return "error";
         }
 
+        if(storageService.isExists(id)){
+            model.addAttribute("message", "This ID is already exists.");
+            return "error";
+        }
+
         try{
             String formatted = formatter.format(code);
             FormattedVersion saved = new FormattedVersion();
