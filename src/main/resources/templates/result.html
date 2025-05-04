@@ -2,23 +2,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Formatted Code</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Formatting Output</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-    <h1>Code Formatter Result</h1>
-    <div class="code-grid">
-        <div>
-            <h2>Original</h2>
-            <pre th:text="${original}"></pre>
+<body class="bg-light">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Code Formatter Tool</span>
+    </div>
+</nav>
+<div class="container mt-4">
+    <h3 class="mb-4">Here's Your Result</h3>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">Original Code</div>
+                <div class="card-body">
+                    <pre class="bg-light p-2" th:text="${original}"></pre>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>Formatted</h2>
-            <pre th:text="${formatted}"></pre>
+        <div class="col-md-6">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">Formatted Code</div>
+                <div class="card-body">
+                    <pre class="bg-light p-2" th:text="${formatted}"></pre>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="/code" class="back-link">← Format another</a>
+    <a th:href="@{/code}" class="btn btn-outline-dark mt-4">Format Another One</a>
 </div>
 </body>
 </html>

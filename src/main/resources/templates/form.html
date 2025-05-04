@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Format Java Code</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Formatter Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-    <h1>Java Code Formatter</h1>
-    <form method="post" action="/code">
-        <label>
-            Code ID:
-            <input name="id" required/>
-        </label>
-        <label>
-            Duration (in seconds):
-            <input type="number" name="duration" required/>
-        </label>
-        <label>
-            Paste Java code:
-            <textarea name="code" rows="10" required></textarea>
-        </label>
-        <button type="submit">Format</button>
-    </form>
+<body class="bg-light">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Code Formatter Tool</span>
+    </div>
+</nav>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title mb-4">Submit Java Code for Formatting</h3>
+            <form th:action="@{/code}" method="post">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Custom Code ID</label>
+                    <input type="text" class="form-control" id="id" name="id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Validity (seconds)</label>
+                    <input type="number" class="form-control" id="duration" name="duration" required>
+                </div>
+                <div class="mb-3">
+                    <label for="code" class="form-label">Your Raw Java Code</label>
+                    <textarea class="form-control" id="code" name="code" rows="10" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit for Formatting</button>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
